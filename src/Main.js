@@ -1,8 +1,14 @@
+import React from 'react';
+import Specials from './Specials';
+import Testimonials from './Testimonials';
+import About from './About';
+
 function Main() {
     return (
         <main>
-            <h1>Welcome to my website!</h1>
-            <p>This is the main content of the page.</p>
+            <Specials />
+            <Testimonials />
+            <About />
         </main>
     );
 }
