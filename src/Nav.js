@@ -4,7 +4,7 @@ function Nav() {
     return (
         <nav>
             <img src={logo} alt="logo" />
-            <ul>
+            <ul className="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
