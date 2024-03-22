@@ -172,15 +172,15 @@ p {
 /* Style for Specials.js */
 .specials {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 15px;
   margin: 0 auto;
   padding: 15px;
   max-width: 80%;
+  position: relative;
 }
 
 .spec {
-  position: absolute;
   margin-left: 20px;
 }
 
@@ -204,7 +204,7 @@ p {
   background-color: var(--secondary-light-grey);
   border-radius: 10px;
   position: relative;
-  margin-top: 80px;
+  margin-top: 20px;
   
 }
 .item img {
@@ -253,14 +253,16 @@ p {
 .menu-button {
   background-color: var(--primary-light); /* Yellow */
   border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  position: absolute;
-  top: calc(80% - 20px); /* Position above the 3rd item */
-  right: 20px;
   border-radius: 10px;
-  margin-right: 140px;
+  position: absolute;
+  margin-right: 40px;
+  top: 20px;
+  right: 20px;
+  transform: translateY(50%);
 }
 
 

@@ -1,0 +1,49 @@
+.booking-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--secondary-light-grey);
+    border-radius: 10px;
+  }
+  
+  .booking-form .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .booking-form form {
+    display: grid;
+    gap: 15px;
+  }
+  
+  .booking-form label {
+    font-family: 'Karla', sans-serif;
+    font-weight: 500;
+    font-size: 16pt;
+    color: var(--secondary-dark);
+  }
+  
+  .booking-form input,
+  .booking-form select {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Karla', sans-serif;
+    font-size: 16pt;
+    border: 1px solid var(--secondary-light-grey);
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .booking-form .reserve-button {
+    background-color: var(--primary-light);
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .booking-form .reserve-button:hover {
+    background-color: var(--secondary-peach);
+  }
