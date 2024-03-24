@@ -4,7 +4,7 @@ import chefs from './chefs.jpg';
 
 function About() {
   return (
-    <section className="about-section">
+    <section className="about-section" aria-label="About Little Lemon">
       <div className="about-content">
         <div className="text-content">
           <h2 className="section-title">Little Lemon</h2>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './BookForm.css';
 
 
@@ -8,6 +8,7 @@ function BookingForm({ dispatch, submitForm }) {
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('Birthday');
     const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+    const [isFormValid, setIsFormValid] = useState(false);
 
     const handleDateChange = (e) => {
         setDate(e.target.value);
@@ -27,6 +28,14 @@ function BookingForm({ dispatch, submitForm }) {
         setOccasion(e.target.value);
     };
 
+    useEffect(() => {
+      // Client-side validation logic here
+      const validateForm = () => {
+          return date && time && guests >= 1; // Basic validation to ensure inputs are filled correctly
+      };
+      setIsFormValid(validateForm()); // Update form validity state
+  }, [date, time, guests]);
+
     const handleSubmit = (e) => {
       e.preventDefault();
       const formData = {
@@ -41,14 +50,14 @@ function BookingForm({ dispatch, submitForm }) {
     };
 
     return (
-      <div className="booking-form">
+      <div className="booking-form" aria-label="Book a table">
       <h2 className="section-title">Book a Table</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="res-date">Choose date</label>
-        <input type="date" id="res-date" value={date} onChange={handleDateChange} />
+        <input type="date" id="res-date" value={date} onChange={handleDateChange} required/>
 
         <label htmlFor="res-time">Choose time</label>
-        <select id="res-time" value={time} onChange={handleTimeChange}>
+        <select id="res-time" value={time} onChange={handleTimeChange} required>
         {availableTimes.length > 0 ? (
           availableTimes.map((availableTime) => (
         <option key={availableTime}>{availableTime}</option>
@@ -67,6 +76,10 @@ function BookingForm({ dispatch, submitForm }) {
           id="guests"
           value={guests}
           onChange={handleGuestsChange}
+          minLength="1"
+          maxLength="10"
+          aria-label="On Click"
+          required
         />
 
         <label htmlFor="occasion">Occasion</label>
@@ -75,7 +88,7 @@ function BookingForm({ dispatch, submitForm }) {
           <option>Anniversary</option>
         </select>
 
-        <input type="submit" value="Make Your reservation" className="reserve-button" />
+        <input type="submit" value="Make Your reservation" className="reserve-button" disabled={!isFormValid} aria-label="On Click" />
       </form>
     </div>
   );
