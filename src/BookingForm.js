@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import './BookForm.css';
 
-function BookingForm({availableTimes, dispatch}) {
+
+function BookingForm({ dispatch, submitForm }) {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('Birthday');
-    //const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+    const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 
     const handleDateChange = (e) => {
         setDate(e.target.value);
+        dispatch({ type: 'UPDATE_TIMES', payload: e.target.value });
     };
 
     const handleTimeChange = (e) => {
@@ -26,13 +28,20 @@ function BookingForm({availableTimes, dispatch}) {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        // Perform form submission or API communication here
-        console.log('Form submitted:', { date, time, guests, occasion });
+      e.preventDefault();
+      const formData = {
+        date,
+        time,
+        guests,
+        occasion,
+      };
+      if (submitForm) {
+        submitForm(formData);
+      }
     };
 
     return (
-        <div className="booking-form">
+      <div className="booking-form">
       <h2 className="section-title">Book a Table</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="res-date">Choose date</label>
@@ -40,9 +49,13 @@ function BookingForm({availableTimes, dispatch}) {
 
         <label htmlFor="res-time">Choose time</label>
         <select id="res-time" value={time} onChange={handleTimeChange}>
-          {availableTimes && availableTimes.map((availableTime) => (
-            <option key={availableTime}>{availableTime}</option>
-          ))}
+        {availableTimes.length > 0 ? (
+          availableTimes.map((availableTime) => (
+        <option key={availableTime}>{availableTime}</option>
+    ))
+      ) : (
+      <option>No available times</option>
+    )}
         </select>
 
         <label htmlFor="guests">Number of guests</label>
