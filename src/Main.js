@@ -59,14 +59,16 @@ function Main() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
+        <Route path="/specials" element={<Specials />} />
+        <Route path="/testimonials" element={<Testimonials />} />
         <Route
         path="/booking" 
         element={<BookingPage availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm} />}
         />
         </Routes>
-        <Specials />
+        {/* <Specials />
         <Testimonials />
-        <About />
+        <About /> */}
     </main>
   );
 }

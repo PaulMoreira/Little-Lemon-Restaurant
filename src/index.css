@@ -39,9 +39,10 @@ header {
   align-items: center;
   gap: 20px;
   margin: 0 auto;
-  padding: 0;
+  padding: 20px;
   max-width: 100%;
   background-color: var(--primary-dark);
+
 }
 
 header img {
@@ -164,6 +165,7 @@ p {
   cursor: pointer;
   margin-bottom: 20px;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .reserve-button:hover {
@@ -274,6 +276,42 @@ p {
 @media (max-width: 768px) {
   .display-title {
     font-size: 48pt;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-sections {
+    padding: 20px 0;
+  }
+
+
+  .about-content, .items, .testimonial-items {
+    flex-direction: column;
+  }
+
+  .text-content, .image-content {
+    padding: 0;
+  }
+
+  .item, .testimonial {
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
